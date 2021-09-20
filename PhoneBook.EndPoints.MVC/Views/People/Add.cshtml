@@ -9,61 +9,70 @@
     <link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 }
-<form asp-action="Add" asp-controller="People" method="post" enctype="multipart/form-data">
-    @*<div asp-validation-summary="All"></div>*@
-    <div class="form-group">
-        <label asp-for="FirstName">FirstName</label>
-        <input type="text" class="form-control" asp-for="FirstName" placeholder="FirstName" maxlength="50">
-        <span asp-validation-for="FirstName"></span>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="LastName">LastName</label>
-        <input type="text" class="form-control" asp-for="LastName" placeholder="LastName" maxlength="50">
-        <span asp-validation-for="LastName"></span>
-    </div>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <form asp-action="Add" asp-controller="People" method="post" enctype="multipart/form-data">
+                    @*<div asp-validation-summary="All"></div>*@
+                    <div class="form-group">
+                        <label asp-for="FirstName">FirstName</label>
+                        <input type="text" class="form-control" asp-for="FirstName" placeholder="FirstName" maxlength="50">
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
 
-    <div class="form-group">
-        <label asp-for="Email">Email address</label>
-        <input type="email" class="form-control" asp-for="Email" placeholder="Email Address" maxlength="256">
-        <span asp-validation-for="Email"></span>
-    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName">LastName</label>
+                        <input type="text" class="form-control" asp-for="LastName" placeholder="LastName" maxlength="50">
+                        <span asp-validation-for="LastName"></span>
+                    </div>
 
-    <div class="form-group">
-        <label for="exampleInputEmail1" asp-for="Address">Adress</label>
-        <input type="text" class="form-control" asp-for="Address" placeholder="Address" maxlength="500">
-        <span asp-validation-for="Address"></span>
-    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email address</label>
+                        <input type="email" class="form-control" asp-for="Email" placeholder="Email Address" maxlength="256">
+                        <span asp-validation-for="Email"></span>
+                    </div>
 
-    <div class="form-group">
-        <label for="exampleInputFile">Image</label>
-        <div class="input-group">
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile" asp-for="Image">
-                <label class="custom-file-label" for="exampleInputFile" asp-for="Image">Choose file</label>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" asp-for="Address">Adress</label>
+                        <input type="text" class="form-control" asp-for="Address" placeholder="Address" maxlength="500">
+                        <span asp-validation-for="Address"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputFile">Image</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" asp-for="Image">
+                                <label class="custom-file-label" for="exampleInputFile" asp-for="Image">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="select2-blue">
+                        <label>Tags</label>
+                        <select class="select2" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-blue" style="width: 100%;" name="SelectedTags">
+                            @foreach (var item in Model.TagsForDisplay)
+                            {
+                                <option value="@item.Id">@item.Title</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    <div class="select2-blue">
-        <label>Tags</label>
-        <select class="select2" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-blue" style="width: 100%;" name="SelectedTags">
-            @foreach (var item in Model.TagsForDisplay)
-            {
-                <option value="@item.Id">@item.Title</option>
-            }
-        </select>
-    </div>
-
-    <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+</section>
 
 @section scripts
-{    
+{
     <script src="~/plugins/select2/js/select2.full.min.js"></script>
     <script>
-        $('.select2').select2()        
+        $('.select2').select2()
     </script>
 }
