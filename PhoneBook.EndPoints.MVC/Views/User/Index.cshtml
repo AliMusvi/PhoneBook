@@ -1,0 +1,54 @@
+﻿@model List<AppUser>
+
+
+<div class="wrapper">
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            @*<th style="width: 10px">#</th>*@
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model?.Any() == true)
+                                        {
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@item.UserName</td>
+                                                    <td>@item.Email</td>
+                                                    <td>
+                                                        <a asp-action="Update" asp-controller="User" asp-route-id="@item.Id">Edit</a>
+                                                        ||
+                                                        <a asp-action="Delete" asp-controller="User" asp-route-id="@item.Id">Delete</a>
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr><td colspan="2">Users Not Found !</td></tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+

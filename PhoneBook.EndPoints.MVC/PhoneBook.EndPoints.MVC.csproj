@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210924110415_init.cs" />
+    <Compile Remove="Migrations\20210924110415_init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\plugins\jquery-validation\additional-methods.js" />
     <None Include="wwwroot\plugins\jquery-validation\additional-methods.min.js" />
     <None Include="wwwroot\plugins\jquery-validation\jquery.validate.js" />

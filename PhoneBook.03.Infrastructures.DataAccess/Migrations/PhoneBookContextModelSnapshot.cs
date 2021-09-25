@@ -104,7 +104,7 @@ namespace PhoneBook.Infrastructures.DataAccess.Migrations
             modelBuilder.Entity("PhoneBook.Domain.Core.People.PersonTag", b =>
                 {
                     b.HasOne("PhoneBook.Domain.Core.Person", "Person")
-                        .WithMany("MyProperty")
+                        .WithMany("Tags")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
 

@@ -1,0 +1,44 @@
+﻿@model PhoneBook.EndPoints.MVC.Models.AAA.CreateUserViewModel
+@{
+
+}
+@section head
+{
+    @*<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />*@
+
+    <link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <form asp-action="Create" asp-controller="User" method="post">
+                    <div asp-validation-summary="All"></div>
+                    <div class="form-group">
+                        <label asp-for="UserName">UserName</label>
+                        <input type="text" class="form-control" asp-for="UserName" placeholder="UserName" maxlength="50">
+                        <span asp-validation-for="UserName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input type="text" class="form-control" asp-for="Email" placeholder="Email" maxlength="100">
+                        <span asp-validation-for="Email"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input type="text" class="form-control" asp-for="Password" placeholder="Password" maxlength="50">
+                        <span asp-validation-for="Password"></span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

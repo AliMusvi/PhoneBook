@@ -10,7 +10,7 @@ using PhoneBook.Infrastructures.DataAccess.Common;
 namespace PhoneBook.Infrastructures.DataAccess.Migrations
 {
     [DbContext(typeof(PhoneBookContext))]
-    [Migration("20210905080156_init")]
+    [Migration("20210924122253_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,7 +106,7 @@ namespace PhoneBook.Infrastructures.DataAccess.Migrations
             modelBuilder.Entity("PhoneBook.Domain.Core.People.PersonTag", b =>
                 {
                     b.HasOne("PhoneBook.Domain.Core.Person", "Person")
-                        .WithMany("MyProperty")
+                        .WithMany("Tags")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
 
